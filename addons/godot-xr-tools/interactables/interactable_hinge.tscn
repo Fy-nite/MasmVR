@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://udjni1e8a7ct"]
+
+[ext_resource type="Script" uid="uid://b30a14rkbjs1j" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="1"]
+
+[node name="InteractableHinge" type="Spatial"]
+script = ExtResource("1")

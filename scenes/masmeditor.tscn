@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2sh6la8dckmu"]
+
+[ext_resource type="Script" uid="uid://d18vlb1t7n8vn" path="res://src/MASMStarter.cs" id="1_4py3v"]
+[ext_resource type="Script" uid="uid://brwmshlhrwvij" path="res://addons/onscreenkeyboard/onscreen_keyboard.gd" id="1_pio0c"]
+[ext_resource type="Script" uid="uid://chanfuny227kl" path="res://scenes/HighlightTextEdit.cs" id="2_oma0s"]
+
+[node name="Masmeditor" type="Control" node_paths=PackedStringArray("textEdit", "startButton", "stopButton", "clearoutButton", "clearerrButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 418.0
+offset_top = -4.0
+offset_right = 388.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.12288, 1.01641)
+script = ExtResource("1_4py3v")
+textEdit = NodePath("CodeEdit")
+startButton = NodePath("GridContainer/Run")
+stopButton = NodePath("GridContainer/Stop")
+clearoutButton = NodePath("GridContainer/clearOut")
+clearerrButton = NodePath("GridContainer/ClearErr")
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = -367.0
+offset_right = 1498.0
+offset_bottom = 645.0
+scale = Vector2(1.00776, 1.00697)
+color = Color(0.450087, 0.308368, 0.460496, 1)
+
+[node name="infolabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 1153.0
+offset_right = 1508.0
+offset_bottom = 643.0
+
+[node name="errorlabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = -370.0
+offset_top = 2.0
+offset_bottom = 635.0
+fit_content = true
+
+[node name="CodeEdit" type="CodeEdit" parent="."]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1125.0
+offset_bottom = 430.0
+text = "lbl printf
+	out RAX $RBX
+	ret
+
+lbl main
+	mov RAX 1
+	mov RBX 100
+	db $100 \"Hello world\\n\"
+	call #printf
+hlt"
+placeholder_text = "meow mewo meow meow meow meow
+meowmeowmeowmeowqmeowmeowmeowmeowmeowmeowmeowmeowemwoemw"
+wrap_mode = 1
+scroll_smooth = true
+minimap_draw = true
+caret_blink = true
+caret_mid_grapheme = true
+highlight_all_occurrences = true
+highlight_current_line = true
+draw_tabs = true
+draw_spaces = true
+script = ExtResource("2_oma0s")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 961.0
+offset_top = 435.0
+offset_right = 1149.0
+offset_bottom = 649.0
+columns = 2
+
+[node name="Run" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Run code
+"
+
+[node name="clearOut" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Clear Out
+"
+
+[node name="Stop" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Stop
+"
+
+[node name="ClearErr" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Clear Err
+"
+
+[node name="OnscreenKeyboard" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 429.0
+offset_right = 750.0
+offset_bottom = 644.0
+script = ExtResource("1_pio0c")
+metadata/_custom_type_script = "uid://brwmshlhrwvij"
+
+[connection signal="pressed" from="GridContainer/clearOut" to="." method="_on_clear_out_pressed"]
+[connection signal="pressed" from="GridContainer/Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="GridContainer/ClearErr" to="." method="_on_clear_err_pressed"]
