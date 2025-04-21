@@ -36,11 +36,11 @@ public partial class MASMStarter : Control
 		textEdit = (HighlightTextEdit)FindChild("CodeEdit", true);
 		GD.Print("MASMStarter: TextEdit assigned.");
 		GD.Print("MASMStarter: _Ready() called");
-		
+
 		if (startButton != null)
 		{
 			GD.Print("Start button found");
-			
+
 		}
 		else
 		{
@@ -89,19 +89,19 @@ public partial class MASMStarter : Control
 		var wrapper = new MASMWrapper(Core_Interpreter.Interpret);
 		wrapper.ExecuteWithExceptionHandling(() =>
 		{
-		GD.Print("MASMStarter: _on_run_pressed() - Button pressed.");
-		lines = textEdit.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
-.Select(line => line.Trim())
-.Where(line => !string.IsNullOrWhiteSpace(line))
-.ToArray();
-		GD.Print("MASMStarter: Lines processed from TextEdit.");
-		Console.SetOut(new printingout());
-		Console.SetError(new printingerr());
-		GD.Print("MASMStarter: Console output and error redirected.");
-		Core_Interpreter.Instructions meow = Core_Interpreter.Process_File(lines);
-		GD.Print("MASMStarter: Instructions processed.");
-		Core_Interpreter.Interpret(meow);
-		GD.Print("MASMStarter: Instructions interpreted.");
+			GD.Print("MASMStarter: _on_run_pressed() - Button pressed.");
+			lines = textEdit.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+	.Select(line => line.Trim())
+	.Where(line => !string.IsNullOrWhiteSpace(line))
+	.ToArray();
+			GD.Print("MASMStarter: Lines processed from TextEdit.");
+			Console.SetOut(new printingout());
+			Console.SetError(new printingerr());
+			GD.Print("MASMStarter: Console output and error redirected.");
+			Core_Interpreter.Instructions meow = Core_Interpreter.Process_File(lines);
+			GD.Print("MASMStarter: Instructions processed.");
+			Core_Interpreter.Interpret(meow);
+			GD.Print("MASMStarter: Instructions interpreted.");
 			GC.Collect();
 		});
 	}

@@ -43,10 +43,10 @@ clearerrButton = NodePath("GridContainer/ClearErr")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = -846.039
-offset_top = 64.9344
-offset_right = -492.039
-offset_bottom = 484.934
+offset_left = 663.0
+offset_top = 25.0
+offset_right = 1483.0
+offset_bottom = 1527.0
 
 [node name="infolabel" type="RichTextLabel" parent="ScrollContainer"]
 layout_mode = 2
@@ -75,8 +75,9 @@ fit_content = true
 layout_mode = 0
 offset_left = -363.0
 offset_top = 18.0
-offset_right = 656.0
-offset_bottom = 1527.0
+offset_right = 1030.0
+offset_bottom = 1597.0
+scale = Vector2(0.733539, 0.772392)
 theme_override_font_sizes/font_size = 40
 text = "lbl printf
 	out RAX $RBX
@@ -137,10 +138,10 @@ text = "Clear Err
 
 [node name="OnscreenKeyboard" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = -364.242
-offset_top = 1523.99
-offset_right = 636.758
-offset_bottom = 1765.99
+offset_left = -359.789
+offset_top = 1240.64
+offset_right = 641.211
+offset_bottom = 1482.64
 scale = Vector2(1.02034, 1.19143)
 tooltip_text = "click any of the keys or type with your keyboard irl to work this machine :3
 "
