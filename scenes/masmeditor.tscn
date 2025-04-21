@@ -1,18 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2sh6la8dckmu"]
+[gd_scene load_steps=9 format=3 uid="uid://c2sh6la8dckmu"]
 
 [ext_resource type="Script" uid="uid://d18vlb1t7n8vn" path="res://src/MASMStarter.cs" id="1_4py3v"]
 [ext_resource type="Script" uid="uid://brwmshlhrwvij" path="res://addons/onscreenkeyboard/onscreen_keyboard.gd" id="1_pio0c"]
 [ext_resource type="Script" uid="uid://chanfuny227kl" path="res://scenes/HighlightTextEdit.cs" id="2_oma0s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4py3v"]
+bg_color = Color(0.428345, 0.305897, 0.436468, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oma0s"]
+bg_color = Color(0.353252, 0.321932, 0.526894, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mjk6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b81wp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffrwj"]
+bg_color = Color(0.342895, 0.302881, 0.602795, 1)
+border_color = Color(0.488026, 0.385955, 0.600174, 1)
+border_blend = true
+corner_detail = 20
 
 [node name="Masmeditor" type="Control" node_paths=PackedStringArray("textEdit", "startButton", "stopButton", "clearoutButton", "clearerrButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 418.0
-offset_top = -4.0
-offset_right = 388.0
-offset_bottom = -4.0
+offset_left = 410.0
+offset_top = -21.0
+offset_right = 380.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.12288, 1.01641)
@@ -23,20 +41,30 @@ stopButton = NodePath("GridContainer/Stop")
 clearoutButton = NodePath("GridContainer/clearOut")
 clearerrButton = NodePath("GridContainer/ClearErr")
 
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -846.039
+offset_top = 64.9344
+offset_right = -492.039
+offset_bottom = 484.934
+
+[node name="infolabel" type="RichTextLabel" parent="ScrollContainer"]
+layout_mode = 2
+fit_content = true
+scroll_following = true
+threaded = true
+
 [node name="ColorRect4" type="ColorRect" parent="."]
-offset_left = -367.0
-offset_right = 1498.0
-offset_bottom = 645.0
-scale = Vector2(1.00776, 1.00697)
+layout_mode = 0
+offset_left = -379.382
+offset_top = 27.5479
+offset_right = 1876.62
+offset_bottom = 1011.55
+scale = Vector2(5.89896, 12.9128)
 color = Color(0.450087, 0.308368, 0.460496, 1)
 
-[node name="infolabel" type="RichTextLabel" parent="."]
-layout_mode = 2
-offset_left = 1153.0
-offset_right = 1508.0
-offset_bottom = 643.0
-
 [node name="errorlabel" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 2
 offset_left = -370.0
 offset_top = 2.0
@@ -45,9 +73,11 @@ fit_content = true
 
 [node name="CodeEdit" type="CodeEdit" parent="."]
 layout_mode = 0
-offset_top = 4.0
-offset_right = 1125.0
-offset_bottom = 430.0
+offset_left = -363.0
+offset_top = 18.0
+offset_right = 656.0
+offset_bottom = 1527.0
+theme_override_font_sizes/font_size = 40
 text = "lbl printf
 	out RAX $RBX
 	ret
@@ -69,15 +99,20 @@ highlight_all_occurrences = true
 highlight_current_line = true
 draw_tabs = true
 draw_spaces = true
+symbol_lookup_on_click = true
+line_folding = true
+gutters_draw_line_numbers = true
+gutters_zero_pad_line_numbers = true
+gutters_draw_fold_gutter = true
 script = ExtResource("2_oma0s")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 961.0
-offset_top = 435.0
-offset_right = 1149.0
-offset_bottom = 649.0
-columns = 2
+offset_left = -1179.11
+offset_top = 1036.0
+offset_right = -464.964
+offset_bottom = 1169.0
+columns = 7
 
 [node name="Run" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -95,17 +130,27 @@ text = "Stop
 "
 
 [node name="ClearErr" type="Button" parent="GridContainer"]
+visible = false
 layout_mode = 2
 text = "Clear Err
 "
 
 [node name="OnscreenKeyboard" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 429.0
-offset_right = 750.0
-offset_bottom = 644.0
+offset_left = -364.242
+offset_top = 1523.99
+offset_right = 636.758
+offset_bottom = 1765.99
+scale = Vector2(1.02034, 1.19143)
+tooltip_text = "click any of the keys or type with your keyboard irl to work this machine :3
+"
+theme_override_styles/panel = SubResource("StyleBoxFlat_4py3v")
 script = ExtResource("1_pio0c")
+background = SubResource("StyleBoxFlat_4py3v")
+normal = SubResource("StyleBoxFlat_oma0s")
+hover = SubResource("StyleBoxFlat_6mjk6")
+pressed = SubResource("StyleBoxFlat_b81wp")
+special_keys = SubResource("StyleBoxFlat_ffrwj")
 metadata/_custom_type_script = "uid://brwmshlhrwvij"
 
 [connection signal="pressed" from="GridContainer/clearOut" to="." method="_on_clear_out_pressed"]

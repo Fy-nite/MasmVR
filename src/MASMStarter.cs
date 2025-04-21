@@ -29,11 +29,11 @@ public partial class MASMStarter : Control
 		GD.Print("MASMStarter: Memory initialized.");
 		startButton = (Button)FindChild("Run", true);
 		GD.Print("MASMStarter: Start button assigned.");
-		output_label = (RichTextLabel)FindChild("infolabel");
+		output_label = (RichTextLabel)FindChild("infolabel", true);
 		GD.Print("MASMStarter: Output label assigned.");
-		error_label = (RichTextLabel)FindChild("errorlabel");
+		error_label = (RichTextLabel)FindChild("errorlabel", true);
 		GD.Print("MASMStarter: Error label assigned.");
-		textEdit = (HighlightTextEdit)FindChild("CodeEdit");
+		textEdit = (HighlightTextEdit)FindChild("CodeEdit", true);
 		GD.Print("MASMStarter: TextEdit assigned.");
 		GD.Print("MASMStarter: _Ready() called");
 		
@@ -75,15 +75,20 @@ public partial class MASMStarter : Control
 		startButton.Pressed += _on_run_pressed;
 		GD.Print("MASMStarter: Button press event connected.");
 		GD.Print("MASMStarter: _Ready() - Initialization complete.");
+		clearoutButton.Pressed += _on_clearout_pressed;
+		GD.Print("MASMStarter: Clear output button event connected.");
 	}
 
-
+	public void _on_clearout_pressed()
+	{
+		GD.Print("MASMStarter: _on_clearout_pressed() - Clear output button pressed.");
+		printingout.clearText(output_label);
+	}
 	public void _on_run_pressed()
 	{
 		var wrapper = new MASMWrapper(Core_Interpreter.Interpret);
 		wrapper.ExecuteWithExceptionHandling(() =>
 		{
-   
 		GD.Print("MASMStarter: _on_run_pressed() - Button pressed.");
 		lines = textEdit.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
 .Select(line => line.Trim())
@@ -97,6 +102,7 @@ public partial class MASMStarter : Control
 		GD.Print("MASMStarter: Instructions processed.");
 		Core_Interpreter.Interpret(meow);
 		GD.Print("MASMStarter: Instructions interpreted.");
+			GC.Collect();
 		});
 	}
 }

@@ -34,7 +34,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/copy_files_on_export/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg", "res://addons/json_editor/plugin.cfg", "res://addons/onscreenkeyboard/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 [filesystem]
 

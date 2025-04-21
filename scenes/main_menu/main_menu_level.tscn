@@ -348,10 +348,12 @@ skeleton = NodePath("../../SettingsUI2")
 surface_material_override/0 = ExtResource("34_2kyei")
 
 [node name="Viewport2Din3D" parent="SettingsUI2/Screen" index="0" instance=ExtResource("35_d4clr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78301e-05, -0.00158799, 0.0148305)
 screen_size = Vector2(0.625, 0.625)
 scene = ExtResource("36_27pad")
 viewport_size = Vector2(2096.67, 646.655)
+update_mode = 2
+throttle_fps = 90.0
 scene_properties_keys = PackedStringArray("MASMStarter", "textEdit", "startButton", "stopButton", "clearoutButton", "clearerrButton")
 
 [node name="CSGCylinder" type="CSGCylinder3D" parent="SettingsUI2" index="1"]
