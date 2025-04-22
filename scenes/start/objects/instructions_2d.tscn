@@ -5,6 +5,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -20,13 +22,13 @@ offset_right = 390.0
 offset_bottom = 240.0
 theme_override_constants/line_separation = -3
 theme_override_font_sizes/normal_font_size = 12
-text = "Pickable Demo
+text = "Welcome to MASMVR
 
-This scene contains objects that the player can pick up including:
+an experience like no other!
+Before you is a display, a dock or desktop if you wish.
+use this to interact with Micro-Assembly Runtime
+and build great programs!
 
- - Balls with remote-grab and grab-highlight meshes
- - Hammers with hand-grab-points and hand-poses
- - Cubes with hand-bone interactions
- - Teacups with hand-grab-points and multiple snap-points
- - Snap-toys that can be snapped into holders
- - Snap-holders that can be enabled/disabled by pointer"
+later on throughout the development, the MASM Runtime will get some extra features powered by MNI!
+
+for now, just have fun. experiment in VR and play with MASM!"

@@ -41,19 +41,6 @@ stopButton = NodePath("GridContainer/Stop")
 clearoutButton = NodePath("GridContainer/clearOut")
 clearerrButton = NodePath("GridContainer/ClearErr")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 0
-offset_left = 663.0
-offset_top = 25.0
-offset_right = 1483.0
-offset_bottom = 1527.0
-
-[node name="infolabel" type="RichTextLabel" parent="ScrollContainer"]
-layout_mode = 2
-fit_content = true
-scroll_following = true
-threaded = true
-
 [node name="ColorRect4" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -379.382
@@ -62,6 +49,32 @@ offset_right = 1876.62
 offset_bottom = 1011.55
 scale = Vector2(5.89896, 12.9128)
 color = Color(0.450087, 0.308368, 0.460496, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = -2.0
+offset_right = 212.0
+offset_bottom = 7.0
+scale = Vector2(5.89896, 12.9128)
+color = Color(0.243537, 0.115338, 0.275172, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 663.0
+offset_top = 21.0
+offset_right = 1964.0
+offset_bottom = 1499.0
+follow_focus = true
+draw_focus_border = true
+
+[node name="infolabel" type="RichTextLabel" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1307.31, 0)
+layout_direction = 2
+layout_mode = 2
+fit_content = true
+scroll_active = false
+justification_flags = 171
 
 [node name="errorlabel" type="RichTextLabel" parent="."]
 visible = false
@@ -75,8 +88,8 @@ fit_content = true
 layout_mode = 0
 offset_left = -363.0
 offset_top = 18.0
-offset_right = 1030.0
-offset_bottom = 1597.0
+offset_right = 1017.0
+offset_bottom = 1546.0
 scale = Vector2(0.733539, 0.772392)
 theme_override_font_sizes/font_size = 40
 text = "lbl printf
@@ -109,10 +122,10 @@ script = ExtResource("2_oma0s")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = -1179.11
-offset_top = 1036.0
-offset_right = -464.964
-offset_bottom = 1169.0
+offset_left = -364.0
+offset_top = 1199.0
+offset_right = 649.0
+offset_bottom = 1230.0
 columns = 7
 
 [node name="Run" type="Button" parent="GridContainer"]
@@ -138,10 +151,10 @@ text = "Clear Err
 
 [node name="OnscreenKeyboard" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = -359.789
-offset_top = 1240.64
-offset_right = 641.211
-offset_bottom = 1482.64
+offset_left = -365.0
+offset_top = 1232.0
+offset_right = 632.0
+offset_bottom = 1457.0
 scale = Vector2(1.02034, 1.19143)
 tooltip_text = "click any of the keys or type with your keyboard irl to work this machine :3
 "

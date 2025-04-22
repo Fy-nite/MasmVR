@@ -16,7 +16,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 12
-text = "Welcome to Godot XR Tools. Use the joysticks on your controllers to move around."
+text = "Welcome to MASMVR
+using the settings panel below
+you can interact with the game settings available"
 autowrap_mode = 2
 
 [node name="UserSettingsUI" parent="." instance=ExtResource("1")]

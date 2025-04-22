@@ -98,8 +98,8 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-643.693, -65.0522)
 flags/unshaded = true
+preview_params/grid_color = "Color(0.590033, 0.244191, 0.6886, 1)"
 nodes/vertex/0/position = Vector2(600, 0)
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_kkkmo")
 nodes/vertex/2/position = Vector2(-600, 0)

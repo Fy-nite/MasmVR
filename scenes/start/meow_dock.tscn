@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdgsshqryg36a"]
+
+[ext_resource type="Script" uid="uid://cvce712c6tvmv" path="res://scenes/main_menu/objects/settings_ui.gd" id="1_82m11"]
+[ext_resource type="Material" uid="uid://bhj8fob2pxx4l" path="res://scenes/main_menu/objects/settings_ui_material.tres" id="2_6a3ow"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="3_x0dv4"]
+[ext_resource type="PackedScene" uid="uid://c2sh6la8dckmu" path="res://scenes/masmeditor.tscn" id="4_6y2gn"]
+[ext_resource type="PackedScene" uid="uid://dc5t2qgmhb2nf" path="res://addons/godot-xr-tools/objects/hand_pose_area.tscn" id="5_nfwkh"]
+[ext_resource type="Resource" uid="uid://ciw0f7mg4ai0k" path="res://addons/godot-xr-tools/hands/poses/pose_point_left.tres" id="6_2jew2"]
+[ext_resource type="Resource" uid="uid://bhvrpfo4ecbub" path="res://addons/godot-xr-tools/hands/poses/pose_point_right.tres" id="7_6tstq"]
+[ext_resource type="PackedScene" uid="uid://y0oeapebwv5w" path="res://assets/masm_ui.tscn" id="8_y7mqe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_27pad"]
+size = Vector3(0.7, 0.7, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kyei"]
+size = Vector3(0.65, 0.188867, 0.650062)
+
+[node name="meowDock" type="Node3D"]
+
+[node name="docUI" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.4488, 0, -2.3486)
+script = ExtResource("1_82m11")
+
+[node name="Screen" type="MeshInstance3D" parent="docUI"]
+transform = Transform3D(2.27541, 3.7205e-08, 1.28028e-08, -7.03298e-08, 1.20371, -2.98023e-08, -2.91315e-08, 5.96046e-08, 1, 0, 1.47505, 0.0691166)
+mesh = SubResource("BoxMesh_27pad")
+surface_material_override/0 = ExtResource("2_6a3ow")
+
+[node name="Viewport2Din3D" parent="docUI/Screen" instance=ExtResource("3_x0dv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78301e-05, -0.00158799, 0.0148305)
+screen_size = Vector2(0.625, 0.625)
+scene = ExtResource("4_6y2gn")
+viewport_size = Vector2(2418.66, 1513.44)
+throttle_fps = 60.0
+scene_properties_keys = PackedStringArray("MASMStarter", "textEdit", "startButton", "stopButton", "clearoutButton", "clearerrButton")
+
+[node name="CSGCylinder" type="CSGCylinder3D" parent="docUI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+radius = 0.05
+height = 1.8
+material = ExtResource("2_6a3ow")
+
+[node name="CSGBox" type="CSGBox3D" parent="docUI/CSGCylinder"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.761732, 0)
+operation = 2
+size = Vector3(0.5, 1, 0.5)
+
+[node name="HandPoseArea" parent="docUI" instance=ExtResource("5_nfwkh")]
+transform = Transform3D(2.62414, 0, 0, 0, 1.70932, 0, 0, 0, 1.88795, 0, 1.35392, 0.0681465)
+left_pose = ExtResource("6_2jew2")
+right_pose = ExtResource("7_6tstq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="docUI/HandPoseArea"]
+transform = Transform3D(0.999999, 9.20359e-09, -2.1554e-08, -2.17489e-08, 0.0217276, -0.999763, -8.73303e-09, 0.999764, 0.0217276, 0.000161707, 0.252417, 0.0153525)
+shape = SubResource("BoxShape3D_2kyei")
+
+[node name="masmUI2" parent="." instance=ExtResource("8_y7mqe")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.0251515, 0, -3.46395)

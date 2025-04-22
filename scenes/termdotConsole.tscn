@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccqt0no0dp78e"]
+
+[ext_resource type="Script" uid="uid://cu2j615a40l2k" path="res://comstart.gd" id="1_gix3l"]
+
+[node name="Termdot" type="Termdot"]
+host_name = "MASMVR"
+
+[node name="Command" type="Command" parent="."]
+command_name = "help"
+script = ExtResource("1_gix3l")

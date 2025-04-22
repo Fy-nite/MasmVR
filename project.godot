@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Micro"
-run/main_scene="res://demo_staging.tscn"
+config/version="v1.0"
+run/main_scene="uid://ci43qywikqd81"
 config/features=PackedStringArray("4.4", "C#")
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon.png"
+config/icon="uid://c4kdj6gltojak"
 
 [autoload]
 
@@ -34,7 +35,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/json_editor/plugin.cfg", "res://addons/onscreenkeyboard/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg")
 
 [filesystem]
 

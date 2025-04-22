@@ -12,11 +12,12 @@ size = Vector3(4.2, 2.7, 0.1)
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("2")]
 screen_size = Vector2(4, 2.5)
-viewport_size = Vector2(400, 250)
-unshaded = true
-scene = ExtResource("1")
-update_mode = 0
 collision_layer = 0
+scene = ExtResource("1")
+viewport_size = Vector2(400, 250)
+update_mode = 0
+unshaded = true
+scene_properties_keys = PackedStringArray()
 
 [node name="MeshInstance" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
